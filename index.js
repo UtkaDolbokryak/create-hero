@@ -138,9 +138,6 @@ document.addEventListener("keydown", function (event) {
   if (event.code == "Space") {
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
-});
-
-document.addEventListener("keydown", function (event) {
   if (event.code == "KeyQ") {
     if (hairId < hairstyles.length - 1) {
       hairId++;
@@ -149,8 +146,6 @@ document.addEventListener("keydown", function (event) {
     }
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
-});
-document.addEventListener("keydown", function (event) {
   if (event.code == "KeyE") {
     if (hairId > 0) {
       hairId--;
@@ -159,8 +154,6 @@ document.addEventListener("keydown", function (event) {
     }
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
-});
-document.addEventListener("keydown", function (event) {
   if (event.code == "KeyA") {
     if (headId <= heads.length - 2) {
       headId++;
@@ -169,8 +162,6 @@ document.addEventListener("keydown", function (event) {
     }
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
-});
-document.addEventListener("keydown", function (event) {
   if (event.code == "KeyD") {
     if (headId > 0) {
       headId--;
@@ -180,8 +171,6 @@ document.addEventListener("keydown", function (event) {
 
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
-});
-document.addEventListener("keydown", function (event) {
   if (event.code == "KeyZ") {
     if (bodyId <= bodies.length - 1) {
       bodyId++;
@@ -191,8 +180,6 @@ document.addEventListener("keydown", function (event) {
 
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
-});
-document.addEventListener("keydown", function (event) {
   if (event.code == "KeyC") {
     if (bodyId > 0) {
       bodyId--;
@@ -202,6 +189,7 @@ document.addEventListener("keydown", function (event) {
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
 });
+
 function downloadCanvas(link, canvasId, filename) {
   link.href = document.getElementById(canvasId).toDataURL();
   link.download = filename;
