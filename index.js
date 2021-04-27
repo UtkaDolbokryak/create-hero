@@ -190,14 +190,10 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-function downloadCanvas(link, canvasId, filename) {
-  link.href = document.getElementById(canvasId).toDataURL();
-  link.download = filename;
+function downloadCanvas() {
+  const link = document.createElement("a");
+  link.download = "my-hero.png";
+  link.href = document.getElementById("canvas").toDataURL();
+  link.click();
 }
-document.getElementById("download").addEventListener(
-  "click",
-  function () {
-    downloadCanvas(this, "canvas", "My_Hero.jpeg");
-  },
-  false
-);
+document.getElementById("download").addEventListener("click", downloadCanvas);
