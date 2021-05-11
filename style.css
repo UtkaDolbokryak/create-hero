@@ -21,7 +21,9 @@ main {
 
 .btn {
   text-decoration: none;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   color: white;
   padding: 20px 30px;
   margin: 10px 20px;
