@@ -135,7 +135,7 @@ function renderHero(hair, head, body) {
   ctx.clearRect(0, 0, 1000, 1000);
 }
 document.addEventListener("keydown", function (event) {
-  if (event.code == "Space") {
+  if (1) {
     renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
   }
   if (event.code == "KeyQ") {
