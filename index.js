@@ -1,3 +1,4 @@
+const xDiff = -100;
 let bodyId = 0;
 let headId = 0;
 let hairId = 0;
@@ -112,26 +113,25 @@ let hairstyles = [
 function renderHero(hair, head, body) {
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
-  canvas.style.left = "500px";
-  canvas.style.top = "-3px";
-  canvas.style.position = "absolute";
+
   let hairImg = new Image();
   let bodyImg = new Image();
   let headImg = new Image();
 
   bodyImg.onload = function () {
-    ctx.drawImage(bodyImg, body.x, body.y, body.w, body.h);
+    ctx.drawImage(bodyImg, body.x + xDiff, body.y, body.w, body.h);
     headImg.src = head.path;
   };
   headImg.onload = function () {
-    ctx.drawImage(headImg, head.x, head.y, head.w, head.h);
+    ctx.drawImage(headImg, head.x + xDiff, head.y, head.w, head.h);
     hairImg.src = hair.path;
   };
   hairImg.onload = function () {
-    ctx.drawImage(hairImg, hair.x, hair.y, hair.w, hair.h);
+    ctx.drawImage(hairImg, hair.x + xDiff, hair.y, hair.w, hair.h);
   };
 
   bodyImg.src = body.path;
+  ctx.clearRect(0, 0, 1000, 1000);
 }
 
 function downloadCanvas() {
@@ -140,61 +140,90 @@ function downloadCanvas() {
   link.href = document.getElementById("canvas").toDataURL();
   link.click();
 }
-function ready() {
-  ctx.clearRect(0, 0, 1000, 1000);
-}
-document.addEventListener("keydown", function (event) {
-  if (event.code == "KeyQ") {
-    if (hairId < hairstyles.length - 1) {
-      hairId++;
-    } else {
-      hairId = 0;
-    }
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
-  }
-  if (event.code == "KeyE") {
-    if (hairId > 0) {
-      hairId--;
-    } else {
-      hairId = hairstyles.length - 1;
-    }
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
-  }
-  if (event.code == "KeyA") {
-    if (headId <= heads.length - 2) {
-      headId++;
-    } else {
-      headId = 0;
-    }
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
-  }
-  if (event.code == "KeyD") {
-    if (headId > 0) {
-      headId--;
-    } else {
-      headId = heads.length - 1;
-    }
 
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+function ready() {
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+function nextHair() {
+  if (hairId < hairstyles.length - 1) {
+    hairId++;
+  } else {
+    hairId = 0;
+  }
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+function prevHair() {
+  if (hairId > 0) {
+    hairId--;
+  } else {
+    hairId = hairstyles.length - 1;
+  }
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+function nextHead() {
+  if (headId < heads.length - 1) {
+    headId++;
+  } else {
+    headId = 0;
+  }
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+function prevHead() {
+  if (headId > 0) {
+    headId--;
+  } else {
+    headId = heads.length - 1;
+  }
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+function nextBody() {
+  if (bodyId < bodies.length - 1) {
+    bodyId++;
+  } else {
+    bodyId = 0;
+  }
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+function prevBody() {
+  if (bodyId > 0) {
+    bodyId--;
+  } else {
+    bodyId = bodies.length - 1;
+  }
+  renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+}
+
+document.addEventListener("keydown", function (event) {
+  if (event.code == "KeyE") {
+    nextHair();
+  }
+  if (event.code == "KeyQ") {
+    prevHair();
+  }
+
+  if (event.code == "KeyD") {
+    nextHead();
+  }
+
+  if (event.code == "KeyA") {
+    prevHead();
+  }
+
+  if (event.code == "KeyC") {
+    nextBody();
   }
   if (event.code == "KeyZ") {
-    if (bodyId <= bodies.length - 1) {
-      bodyId++;
-    } else {
-      bodyId = 0;
-    }
-
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+    prevBody();
   }
-  if (event.code == "KeyC") {
-    if (bodyId > 0) {
-      bodyId--;
-    } else {
-      bodyId = bodies.length - 1;
-    }
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
-  }
+  console.log(hairId);
+  console.log(headId);
+  console.log(bodyId);
 });
-
 document.getElementById("download").addEventListener("click", downloadCanvas);
-document.addEventListener("DOMContentLoaded");
+document.addEventListener("DOMContentLoaded", ready);

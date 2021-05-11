@@ -3,23 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./fontawesome-free-5.15.3-web/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="content">
-      <div id="hat"></div>
+    <main>
       <div class="menu">
-        <p>Начать: Space</p>
-        <p>Поменять волосы: Q и E</p>
-        <p>Поменять лицо: A и D</p>
-        <p>Поменять тело: Z и C</p>
-        <p><button id="download" download>Скачать персонажа</button></p>
+        <p class="menu__item">
+          <button class="btn arrow-btn">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          Волосы
+          <button class="btn arrow-btn">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </p>
+        <p class="menu__item">
+          <button class="btn arrow-btn">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          Лицо
+          <button class="btn arrow-btn">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </p>
+        <p class="menu__item">
+          <button class="btn arrow-btn">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          Тело
+          <button class="btn arrow-btn">
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </p>
+        <p>
+          <button id="download" class="btn" download>Скачать персонажа</button>
+        </p>
       </div>
-      <canvas id="canvas" width="800" height="900" x="5000"></canvas>
-    </div>
+      <canvas id="canvas" width="550" height="900"></canvas>
+    </main>
 
-    <footer id="footer"></footer>
     <script src="index.js"></script>
   </body>
 </html>

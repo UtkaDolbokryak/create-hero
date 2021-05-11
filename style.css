@@ -1,27 +1,26 @@
 body {
-  display: flex;
-  flex-direction: column;
   background-color: ivory;
+  border-top: 50px solid cornflowerblue;
+  border-bottom: 50px solid cornflowerblue;
+  margin: 0;
 }
-#hat {
-  height: 50px;
-  background-color: cornflowerblue;
-  margin: -10px;
+
+main {
+  display: flex;
 }
-#footer {
-  height: 50px;
-  background-color: cornflowerblue;
-  margin: -10px;
-}
-.content {
-  min-height: calc(100vh - 70px);
+#canvas {
 }
 .menu {
   font-size: xx-large;
   font-family: Arial, Helvetica, sans-serif;
   color: cornflowerblue;
 }
-#download {
+
+.menu__item {
+  width: max-content;
+}
+
+.btn {
   text-decoration: none;
   display: inline-block;
   color: white;
@@ -41,6 +40,11 @@ body {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: 0.5s;
 }
-#download:hover {
+.btn:hover {
   background-position: right center;
+}
+
+.arrow-btn {
+  font-size: 20pt;
+  padding: 10px 20px;
 }
