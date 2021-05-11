@@ -221,9 +221,6 @@ document.addEventListener("keydown", function (event) {
   if (event.code == "KeyZ") {
     prevBody();
   }
-  console.log(hairId);
-  console.log(headId);
-  console.log(bodyId);
 });
 document.getElementById("next-hair").addEventListener("click", nextHair);
 document.getElementById("next-head").addEventListener("click", nextHead);
