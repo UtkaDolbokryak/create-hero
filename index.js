@@ -134,8 +134,6 @@ function renderHero(hair, head, body) {
   bodyImg.src = body.path;
 }
 
-renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
-
 function downloadCanvas() {
   const link = document.createElement("a");
   link.download = "my-hero.png";
