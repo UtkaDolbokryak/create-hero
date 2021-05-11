@@ -132,12 +132,20 @@ function renderHero(hair, head, body) {
   };
 
   bodyImg.src = body.path;
+}
+
+renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
+
+function downloadCanvas() {
+  const link = document.createElement("a");
+  link.download = "my-hero.png";
+  link.href = document.getElementById("canvas").toDataURL();
+  link.click();
+}
+function ready() {
   ctx.clearRect(0, 0, 1000, 1000);
 }
 document.addEventListener("keydown", function (event) {
-  if (1) {
-    renderHero(hairstyles[hairId], heads[headId], bodies[bodyId]);
-  }
   if (event.code == "KeyQ") {
     if (hairId < hairstyles.length - 1) {
       hairId++;
@@ -190,10 +198,5 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-function downloadCanvas() {
-  const link = document.createElement("a");
-  link.download = "my-hero.png";
-  link.href = document.getElementById("canvas").toDataURL();
-  link.click();
-}
 document.getElementById("download").addEventListener("click", downloadCanvas);
+document.addEventListener("DOMContentLoaded");
