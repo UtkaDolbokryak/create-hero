@@ -225,5 +225,11 @@ document.addEventListener("keydown", function (event) {
   console.log(headId);
   console.log(bodyId);
 });
+document.getElementById("next-hair").addEventListener("click", nextHair);
+document.getElementById("next-head").addEventListener("click", nextHead);
+document.getElementById("next-body").addEventListener("click", nextBody);
+document.getElementById("prev-hair").addEventListener("click", prevHair);
+document.getElementById("prev-head").addEventListener("click", prevHead);
+document.getElementById("prev-body").addEventListener("click", prevBody);
 document.getElementById("download").addEventListener("click", downloadCanvas);
 document.addEventListener("DOMContentLoaded", ready);
